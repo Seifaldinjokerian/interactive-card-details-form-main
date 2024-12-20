@@ -58,7 +58,6 @@ body {
         margin-bottom: 60px;
         margin-right: 20px;
         position: relative;
-        background: url(/images/card-logo.svg);
       }
 
       .creditCardNum {
@@ -405,7 +404,6 @@ img[alt="mobile"] {
           margin-bottom: 25px;
           margin-right: 20px;
           position: relative;
-          background: url(/images/card-logo.svg);
         }
 
         .creditCardNum {
