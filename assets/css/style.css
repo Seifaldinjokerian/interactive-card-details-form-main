@@ -1,0 +1,448 @@
+:root {
+  --linearGradient_ActiveInputBorder_: linear-gradient(hsl(249, 99%, 64%) to hsl(278, 94%, 30%));
+  --redInputErrors: hsl(0, 100%, 66%);
+  --white: hsl(0, 0%, 100%);
+  --lightGrayishViolet: hsl(270, 3%, 87%);
+  --darkGrayishViolet: hsl(279, 6%, 55%);
+  --veryDarkViolet: hsl(278, 68%, 11%);
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/SpaceGrotesk-VariableFont_wght.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Space Grotesk";
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  .cards {
+    position: absolute;
+    width: 450px;
+    height: 100%;
+    left: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .frontCard {
+      background: url(../../images/bg-card-front.png);
+      background-size: cover;
+      width: 420px;
+      height: 230px;
+      padding: 35px 35px 20px;
+      position: absolute;
+      left: -120px;
+      top: 20%;
+      box-shadow: 15px 15px 40px 0px hsl(278deg 68% 11% / 20%);
+      border-radius: 10px;
+      z-index: 2;
+
+      .profileImg {
+        width: 84px;
+        height: 47px;
+        margin-bottom: 60px;
+        margin-right: 20px;
+        position: relative;
+        background: url(/images/card-logo.svg);
+      }
+
+      .creditCardNum {
+        width: 100%;
+        display: block;
+        font-size: 22px;
+        letter-spacing: 5px;
+        color: white;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .personalData {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 23px;
+        color: var(--lightGrayishViolet);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 500;
+        font-size: 13px;
+      }
+    }
+
+    .backCard {
+      background: url("../../images/bg-card-back.png");
+      background-size: cover;
+      width: 420px;
+      height: 230px;
+      padding: 35px 35px 20px;
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      box-shadow: 15px 15px 40px 0px hsl(278deg 68% 11% / 20%);
+      border-radius: 10px;
+
+      .cardPass {
+        position: absolute;
+        top: 50%;
+        right: 55px;
+        transform: translateY(-50%);
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 2px;
+      }
+    }
+  }
+
+  .bg {
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: 400px;
+    }
+  }
+
+  .successPage {
+    display: none;
+    place-content: center;
+    width: 100%;
+
+
+    img {
+      margin: auto;
+    }
+
+    h2 {
+      margin: 20px auto;
+      letter-spacing: 1.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    span {
+      font-weight: 500;
+      color: var(--darkGrayishViolet);
+      margin: auto;
+    }
+
+    button {
+      width: 320px;
+      padding: 12px;
+      background: var(--veryDarkViolet);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: .5px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+  }
+
+  .form {
+    display: grid;
+    place-content: center;
+    width: 100%;
+
+    form {
+      width: 320px;
+
+      label {
+        font-size: 10px;
+        font-weight: bold;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+        color: var(--veryDarkViolet);
+        width: fit-content;
+      }
+
+      >div:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+
+      .nameCont,
+      .cardNumCont {
+        input {
+          padding: 10px;
+          width: 100%;
+          border-radius: 6px;
+          border: 1px solid var(--lightGrayishViolet);
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 1px;
+
+          &:focus {
+            border: 1px solid hsl(278, 94%, 30%);
+            outline: none;
+          }
+
+          &::placeholder {
+            color: var(--lightGrayishViolet);
+            font-weight: 500;
+            letter-spacing: 1px;
+          }
+        }
+      }
+
+      .dateCont {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: 70px;
+          padding: 8px 10px;
+          border-radius: 6px;
+          font-size: 16px;
+          border: 1px solid var(--lightGrayishViolet);
+          font-weight: 500;
+          letter-spacing: 1px;
+
+          &:focus {
+            border: 1px solid hsl(278, 94%, 30%);
+            outline: none;
+          }
+
+          &::placeholder {
+            color: var(--lightGrayishViolet);
+            font-weight: 500;
+          }
+        }
+
+        .CVCCont {
+          input {
+            width: 150px;
+          }
+        }
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: var(--veryDarkViolet);
+        color: var(--white);
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: .5px;
+        border: none;
+        border-radius: 6px;
+      }
+    }
+  }
+}
+
+.error {
+  color: var(--redInputErrors);
+  font-size: 10px;
+  margin-top: 5px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  display: block;
+  width: fit-content;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+input.errorInputting {
+  border-color: var(--redInputErrors) !important;
+}
+
+img[alt="mobile"] {
+  display: none;
+}
+
+.attribution {
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+@media (max-width: 1100px) {
+  .container {
+
+    .bg {
+      height: 100%;
+      width: 100%;
+
+      img {
+        height: 120%;
+        width: 100%;
+        transform: rotate(90deg) translateX(-50%);
+        top: -27%;
+        left: 0;
+        position: absolute;
+      }
+
+    }
+
+    .cards {
+      left: 140px;
+    }
+
+    .form {
+      margin-top: 200px;
+    }
+  }
+}
+
+@media (max-width: 930px) {
+  .container {
+    .bg {
+      height: 200px;
+      width: 0;
+
+      img {
+        height: 120%;
+        width: 100%;
+        transform: rotate(90deg) translateX(-50%);
+        top: -27%;
+        left: 0;
+        position: absolute;
+      }
+    }
+
+    .cards {
+      left: 0;
+      display: flex;
+      height: 50%;
+      top: -63px;
+      width: 100%;
+
+      .frontCard {
+        z-index: 2;
+        left: 140px;
+        top: 50%;
+      }
+
+      .backCard {
+        right: 200px;
+        left: unset;
+        top: 20%;
+      }
+    }
+
+    .form {
+      width: 100%;
+      margin-top: 250px;
+
+    }
+
+    .successPage {
+      width: 100%;
+      margin-top: 250px;
+
+    }
+  }
+
+  .attribution {
+    display: none;
+  }
+}
+
+@media (max-width: 630px) {
+  .container {
+    flex-direction: column;
+    max-height: 100vh;
+
+    .bg {
+      height: 350px;
+
+      img[alt="desktop"] {
+        display: none;
+      }
+
+      img[alt="mobile"] {
+        display: unset;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .cards {
+      width: 100%;
+      height: 350px;
+      left: 0;
+
+      .frontCard {
+        top: 66%;
+        z-index: 2;
+        left: 5%;
+        width: 300px;
+        height: 164px;
+        padding: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        .profileImg {
+          width: 84px;
+          height: 47px;
+          margin-bottom: 25px;
+          margin-right: 20px;
+          position: relative;
+          background: url(/images/card-logo.svg);
+        }
+
+        .creditCardNum {
+          font-size: 14px;
+        }
+      }
+
+      .backCard {
+        left: 55%;
+        transform: translateX(-50%);
+        width: 300px;
+        height: 165px;
+        padding: 0;
+        background-size: contain;
+        background-repeat: no-repeat;
+        top: 40%;
+
+        .cardPass {
+          top: 81px;
+          right: 40px;
+        }
+      }
+    }
+
+    .form {
+      padding-top: 80px;
+      margin-top: unset;
+    }
+  }
+
+  .successPage {
+    width: unset;
+    margin-top: 50px !important;
+
+  }
+
+  .attribution {
+    display: none;
+  }
+}
